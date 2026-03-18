@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-ethiopic: var(--font-ethiopic);
+  --shadow-ceramic: var(--shadow-ceramic);
+  --shadow-ceramic-hover: var(--shadow-ceramic-hover);
+  --color-clay: var(--clay);
+  --color-clay-foreground: var(--clay-foreground);
+}
+
+:root {
+  --background: #00473C; /* Primary Brand Green */
+  --foreground: #E0DDB8; /* Cream / Coffee Foam */
+
+  --card: #282C28; /* Dark Neutral */
+  --card-foreground: #E0DDB8;
+
+  --popover: #282C28;
+  --popover-foreground: #E0DDB8;
+
+  --primary: #00473C;
+  --primary-foreground: #E0DDB8;
+
+  --secondary: #567E6A; /* Muted Supporting Green */
+  --secondary-foreground: #E0DDB8;
+
+  --muted: #567E6A;
+  --muted-foreground: #E0DDB8/70;
+
+  --accent: #D10B09; /* Brand Red */
+  --accent-foreground: #FFFFFF;
+
+  --clay: #D10B09;
+  --clay-foreground: #FFFFFF;
+
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(210 40% 98%);
+
+  --border: #E0DDB8/15;
+  --input: #E0DDB8/20;
+  --ring: #D10B09;
+
+  --radius: 1rem;
+
+  --sidebar-background: #00473C;
+  --sidebar-foreground: #E0DDB8;
+  --sidebar-primary: #D10B09;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #567E6A;
+  --sidebar-accent-foreground: #E0DDB8;
+  --sidebar-border: #E0DDB8/15;
+  --sidebar-ring: #D10B09;
+
+  --shadow-ceramic: 0 20px 50px rgba(0, 0, 0, 0.3);
+  --shadow-ceramic-hover: 0 20px 50px rgba(0, 0, 0, 0.4);
+
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Instrument Sans', sans-serif;
+  --font-ethiopic: 'Noto Sans Ethiopic', sans-serif;
+}
+
+.dark {
+  --background: #00473C;
+  --foreground: #E0DDB8;
+  --card: #282C28;
+  --card-foreground: #E0DDB8;
+  --popover: #282C28;
+  --popover-foreground: #E0DDB8;
+  --primary: #E0DDB8;
+  --primary-foreground: #00473C;
+  --secondary: #567E6A;
+  --secondary-foreground: #E0DDB8;
+  --muted: #567E6A;
+  --muted-foreground: #E0DDB8/60;
+  --accent: #D10B09;
+  --accent-foreground: #FFFFFF;
+  --clay: #D10B09;
+  --clay-foreground: #FFFFFF;
+  --border: #E0DDB8/15;
+  --input: #E0DDB8/20;
+  --ring: #D10B09;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-ethiopic {
+    font-family: var(--font-ethiopic);
+  }
+
+  .ceramic-surface {
+    @apply bg-card/60 backdrop-blur-xl rounded-[2rem] border border-border;
+    box-shadow: var(--shadow-ceramic);
+  }
+
+  .ceramic-surface-hover {
+    @apply transition-all duration-300;
+  }
+
+  .ceramic-surface-hover:hover {
+    box-shadow: var(--shadow-ceramic-hover);
+    transform: translateY(-4px);
+  }
+
+  .red-ring {
+    box-shadow: 0 0 0 3px #D10B09, 0 0 0 6px rgba(209, 11, 9, 0.2);
+  }
+
+  .text-gradient-red {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #D10B09, #FF5C5A);
+  }
+
+  .ethiopian-pattern {
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(209, 11, 9, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(86, 126, 106, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(224, 221, 184, 0.02) 0%, transparent 70%);
+    background-attachment: fixed;
+  }
+
+  .btn-mahber {
+    @apply px-8 py-4 bg-[#00473C] text-[#E0DDB8] rounded-full font-display font-bold tracking-tight transition-all border border-[#E0DDB8]/20;
+  }
+
+  .btn-mahber:hover {
+    @apply transform -translate-y-1 shadow-2xl bg-[#005a4d];
+  }
+
+  .btn-clay {
+    @apply px-8 py-4 bg-[#D10B09] text-white rounded-full font-display font-bold tracking-tight transition-all;
+  }
+
+  .btn-clay:hover {
+    @apply transform -translate-y-1 shadow-2xl bg-[#ef0d0a];
+  }
+
+  .btn-gold {
+    @apply px-8 py-4 bg-[#567E6A] text-[#E0DDB8] rounded-full font-display font-bold tracking-tight transition-all;
+  }
+
+  .btn-gold:hover {
+    @apply transform -translate-y-1 shadow-2xl bg-[#66947d];
+  }
+}
+
+@layer utilities {
+  .tracking-tightest {
+    letter-spacing: -0.05em;
+  }
+}
